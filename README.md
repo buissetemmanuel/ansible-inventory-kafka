@@ -1,6 +1,6 @@
-[INVENTORY LINT](https://github.com/buissetemmanuel/ansible-inventory-kafka/actions/workflows/inventory-lint.yml/badge.svg) ![RELEASE](https://github.com/buissetemmanuel/ansible-inventory-kafka/actions/workflows/release.yml/badge.svg)
+[LINT](https://github.com/buissetemmanuel/ansible-inventory-kafka/actions/workflows/lint.yml/badge.svg) ![RELEASE](https://github.com/buissetemmanuel/ansible-inventory-kafka/actions/workflows/release.yml/badge.svg)
 
-INVENTORY KAFKA to consume [ANSIBLE ROLE KAFKA](buissetemmanuel/ansible-role-kafka.git)
+INVENTORY KAFKA to consume [ANSIBLE ROLE KAFKA](https://github.com/buissetemmanuel/ansible-role-kafka.git)
 =========
 
 **KAFKA** installation from scratch in **KRAFT** mode.
