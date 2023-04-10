@@ -1,0 +1,24 @@
+---
+
+name: RELEASE
+
+'on':
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read # for checkout
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  lint:
+    uses: buissetemmanuel/ansible-inventory-kafka/.github/workflows/lint.yml@main
+
+  release:
+    needs: lint
+    permissions:
+      contents: write
+    uses: buissetemmanuel/cicd-templates/.github/workflows/release.yml@main

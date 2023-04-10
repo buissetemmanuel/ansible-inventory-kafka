@@ -1,0 +1,50 @@
+---
+
+users_groups:
+  - name: skug
+  - name: skugs
+  - name: skugl
+  - name: skugal
+users_users:
+  - name: skuo
+    group: skug
+    create_home: true
+  - name: skuos
+    group: skugs
+    create_home: true
+    groups: skugl
+  - name: skual
+    group: skugal
+    groups: skugl
+
+kafka_user_owner: skuo
+kafka_user_group: skug
+kafka_user_group_logs: skugl
+kafka_user_owner_service: skuos
+kafka_user_group_service: skugs
+
+kafka_cluster_id: "{{ vault_kafka_cluster_id }}"
+kafka_broker_port: 9092
+kafka_controller_port: 9093
+kafka_server_controller_quorum_voters: "2@server03.{{ ansible_domain }}:{{ kafka_controller_port }},3@server04.{{ ansible_domain }}:{{ kafka_controller_port }}"
+kafka_jvm_performance_opts: "-XX:MetaspaceSize=96m -XX:+UseG1GC -XX:MaxGCPauseMillis=20 -XX:InitiatingHeapOccupancyPercent=35 -XX:G1HeapRegionSize=16M -XX:MinMetaspaceFreeRatio=50 -XX:MaxMetaspaceFreeRatio=80"
+kafka_topics:
+  - name: 'ch'
+    partitions: '5'
+    replicas: '2'
+  - name: 'be'
+    partitions: '2'
+    replicas: '2'
+  - name: 'de'
+    partitions: '3'
+    replicas: '1'
+kafka_topics_config:
+  - name: 'ch'
+    delete.retention.ms: 222222
+    max.message.bytes: 1024
+  - name: 'be'
+    delete.retention.ms: 100000
+    max.message.bytes: 2048
+kafka_extra_properties:
+  - key: message.max.bytes
+    value: 409715200

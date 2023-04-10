@@ -1,0 +1,10 @@
+name: LINT
+
+on:
+  push:
+  pull_request:
+  workflow_call:
+
+jobs:
+  yaml-lint:
+    uses: buissetemmanuel/cicd-templates/.github/workflows/yamllint.yml@v1.1.1

@@ -1,0 +1,19 @@
+server02  ansible_host=server02.local.ch
+server03  ansible_host=server03.local.ch
+server04  ansible_host=server04.local.ch
+
+[all:vars]
+ansible_user="admin"
+
+[ping]
+server02
+server03
+server04
+
+[containers_kafka]
+server03
+
+[servers_kafka]
+server02
+server03
+server04

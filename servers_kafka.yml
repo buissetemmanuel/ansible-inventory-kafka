@@ -1,0 +1,19 @@
+---
+
+- name: Manage KAFKA Cluster Server KRAFT
+  hosts: servers_kafka
+  gather_facts: true
+  tasks:
+    - name: "Build hosts file"
+      become: true
+      lineinfile:
+        dest: /etc/hosts
+        regexp: '.*{{ item }}$'
+        line: "{{ hostvars[item].ansible_default_ipv4.address }} {{ item }} {{ item }}.{{ ansible_domain }}"
+        state: present
+      when: hostvars[item].ansible_default_ipv4.address is defined
+      loop: "{{ groups['all'] }}"
+
+    - name: Include buissetemmanuel.kafka
+      ansible.builtin.include_role:
+        name: kafka

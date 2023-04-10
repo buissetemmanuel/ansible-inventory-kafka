@@ -1,0 +1,13 @@
+---
+
+roles:
+  - src: https://github.com/buissetemmanuel/ansible-role-container.git
+    version: v1.0.2
+    name: container
+  - src: https://github.com/buissetemmanuel/ansible-role-kafka.git
+    version: v1.0.4
+    name: kafka
+
+collections:
+  - ansible.netcommon
+  - containers.podman

@@ -1,0 +1,7 @@
+---
+
+kafka_bootstrap_server: "{{ ansible_fqdn }}:{{ kafka_broker_port }}"
+kafka_server_node_id: 2
+kafka_server_process_roles: broker,controller
+kafka_server_listeners: "PLAINTEXT://{{ ansible_fqdn }}:{{ kafka_broker_port }},CONTROLLER://{{ ansible_fqdn }}:{{ kafka_controller_port }}"
+kafka_server_advertised_listeners: "PLAINTEXT://{{ ansible_fqdn }}:{{ kafka_broker_port }}"

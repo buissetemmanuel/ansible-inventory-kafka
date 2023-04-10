@@ -1,0 +1,10 @@
+---
+
+# Manage packages
+packages_managed: true
+
+# Manage users and groups
+users_managed: true
+
+# Manage systems
+systems_managed: true
